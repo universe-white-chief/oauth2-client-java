@@ -27,7 +27,7 @@ public class TokenController {
     @RequestMapping(value = "/gettokeninfo", method = RequestMethod.GET)
     @ResponseBody
     public String getToken() {
-        String uri = "http://localhost:8090/oauth/token";
+        String uri = "http://localhost:8091/oauth/token";
         MultiValueMap<String, String> postParams = new LinkedMultiValueMap<>();
         postParams.add("username", "sddtc");
         postParams.add("password", "sddtc");
