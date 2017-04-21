@@ -5,31 +5,24 @@ import org.apache.commons.codec.binary.Base64;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
-import org.springframework.http.HttpRequest;
 import org.springframework.util.LinkedMultiValueMap;
 import org.springframework.util.MultiValueMap;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.client.RestTemplate;
 
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 import java.nio.charset.Charset;
-import java.util.HashMap;
-import java.util.Map;
 
 /**
  * Created by sddtc on 2017/3/31.
  */
 @RestController
 public class TokenController {
-
     @Value("${clientId}")
     private String clientId;
     @Value("${clientSecret}")
     private String clientSecret;
+
+    private Gson gson = new Gson();
 
     @RequestMapping(value = "/gettokeninfo", method = RequestMethod.GET)
     @ResponseBody
@@ -52,10 +45,4 @@ public class TokenController {
 
         return result;
     }
-
-//    @RequestMapping(value = "/getdata", method = RequestMethod.GET)
-//    @ResponseBody
-//    public String getTokenByRefreshToken(String token) {
-//
-//    }
 }
